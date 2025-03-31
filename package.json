@@ -1,0 +1,133 @@
+{
+  "name": "betterbucket",
+  "displayName": "BetterBucket",
+  "publisher": "AppScience",
+  "description": "",
+  "version": "0.0.5",
+  "author": "Scott Carlson @scottcarlson",
+  "private": true,
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "betterbucket.openInRepo",
+        "title": "BetterBucket: Open In Repo"
+      },
+      {
+        "command": "betterbucket.openInRepoWithLineNumber",
+        "title": "BetterBucket: Open In Repo with Line Number"
+      },
+      {
+        "command": "betterbucket.copyToClipboard",
+        "title": "BetterBucket: Copy Repo Link to Clipboard"
+      },
+      {
+        "command": "betterbucket.copyToClipboardWithLineNumber",
+        "title": "BetterBucket: Copy Repo Link to Clipboard with Line Number"
+      },
+      {
+        "command": "betterbucket.openInRepoWithBranchOverride",
+        "title": "BetterBucket: Open In Repo with Branch Override"
+      },
+      {
+        "command": "betterbucket.openInRepoWithLineNumberAndBranchOverride",
+        "title": "BetterBucket: Open In Repo with Line Number and Branch Override"
+      },
+      {
+        "command": "betterbucket.copyFileNameToClipboard",
+        "title": "BetterBucket: Copy File Name To Clipboard"
+      },
+      {
+        "command": "betterbucket.copyFilePathToClipboard",
+        "title": "BetterBucket: Copy File Path To Clipboard"
+      }
+    ],
+    "configuration": {
+      "title": "BetterBucket",
+      "properties": {
+        "betterbucket.localPathToRemove": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "Local path to replace with the repository base code browsing URL."
+        },
+        "betterbucket.repoBaseCodeUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "The base repository code browsing URL."
+        },
+        "betterbucket.repoBranch": {
+          "type": "string",
+          "default": "develop",
+          "description": "The repository branch for the code browsing URL."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "betterbucket.openInRepo",
+        "key": "ctrl+alt+shift+b",
+        "mac": "cmd+alt+shift+b",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "betterbucket.openInRepoWithLineNumber",
+        "key": "ctrl+alt+shift+n",
+        "mac": "cmd+alt+shift+n",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "betterbucket.copyToClipboard",
+        "key": "ctrl+alt+shift+c",
+        "mac": "cmd+alt+shift+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "betterbucket.copyToClipboardWithLineNumber",
+        "key": "ctrl+alt+shift+v",
+        "mac": "cmd+alt+shift+v",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "betterbucket.copyFileNameToClipboard",
+        "key": "alt+c",
+        "mac": "alt+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "betterbucket.copyFilePathToClipboard",
+        "key": "alt+shift+c",
+        "mac": "alt+shift+c",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.76.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5",
+    "@vscode/test-electron": "^2.2.3"
+  }
+}
