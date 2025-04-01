@@ -32,7 +32,7 @@ const getRepoUrl = (
   }
 
   const currentlyOpenTabAbsoluteFilePath =
-    vscode.window.activeTextEditor.document.fileName;
+    vscode.window.activeTextEditor.document.uri.path;
 
   const currentlyOpenTabFilePath = currentlyOpenTabAbsoluteFilePath.replace(
     localPathToRemove,
