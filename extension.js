@@ -191,7 +191,7 @@ function activate(context) {
     "betterbucket.copyFileNameToClipboard",
     async function () {
       vscode.env.clipboard.writeText(
-        vscode.window.activeTextEditor.document.fileName.split("/").pop(),
+        vscode.window.activeTextEditor.document.uri.path.split("/").pop(),
       );
     },
   );
@@ -203,7 +203,7 @@ function activate(context) {
 
       const localPathToRemove = configuration.get("localPathToRemove");
 
-      const filePath = vscode.window.activeTextEditor.document.fileName
+      const filePath = vscode.window.activeTextEditor.document.uri.path
         .split(localPathToRemove)
         .pop();
 
@@ -218,7 +218,7 @@ function activate(context) {
       if (prefix) {
         if (prefix === "!") {
           vscode.env.clipboard.writeText(
-            vscode.window.activeTextEditor.document.fileName,
+            vscode.window.activeTextEditor.document.uri.path,
           );
         } else {
           vscode.env.clipboard.writeText(prefix + filePath);
